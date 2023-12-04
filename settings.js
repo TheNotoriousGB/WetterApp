@@ -1,4 +1,21 @@
 
+// Überprüfen Sie, ob der Benutzer eingeloggt ist
+function isLoggedIn() {
+  return localStorage.getItem('accessToken') !== null;
+}
+
+// Füge einen Event-Listener hinzu, der auf das Absenden des Formulars reagiert
+form.addEventListener('submit', (event) => {
+  // Verhindere das Neuladen der Seite
+  event.preventDefault();
+
+  // Überprüfen Sie, ob der Benutzer eingeloggt ist
+  if (!isLoggedIn()) {
+    console.error('Sie müssen eingeloggt sein, um diese Aktion durchzuführen');
+    return;
+  }
+
+
 // Wähle das Formular und die Eingabefelder im Dokument aus
 const form = document.querySelector('form');
 const table = document.querySelector('table');
@@ -121,4 +138,5 @@ table.addEventListener('click', (event) => {
     })
     .catch(error => console.error('Fehler:', error));
   }
+});
 });

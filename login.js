@@ -17,21 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ username, password }),
             });
 
-            const data = await response.json();
-
             if (response.ok) {
+                const data = await response.json();
                 // Erfolgreicher Login
                 messageDiv.innerHTML = `<p>Login erfolgreich</p>`;
-                // Hier könntest du den Benutzer zum Dashboard weiterleiten oder andere Aktionen ausführen.
-                // Speichere das Token z.B. im localStorage für zukünftige Anfragen.
-                // localStorage.setItem('token', data.token);
-                window.location.href = 'index.html'; // 
+                localStorage.setItem('accessToken', data.accessToken);
+                window.location.href = 'index.html';
             } else {
                 // Login-Fehler
+                const data = await response.json();
                 messageDiv.innerHTML = `<p>${data.error}</p>`;
             }
         } catch (error) {
             console.error('Fehler beim Login:', error);
         }
+
     });
 });
