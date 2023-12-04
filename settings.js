@@ -1,4 +1,14 @@
 
+// Wähle das Formular und die Eingabefelder im Dokument aus
+const form = document.querySelector('form');
+const table = document.querySelector('table');
+const locationInput = document.querySelector('#location');
+const temperatureInput = document.querySelector('#temperature');
+const descriptionInput = document.querySelector('#description');
+
+const api_url = 'http://localhost:2940/api/v1/entities';
+
+
 // Überprüfen Sie, ob der Benutzer eingeloggt ist
 function isLoggedIn() {
   return localStorage.getItem('accessToken') !== null;
@@ -14,16 +24,6 @@ form.addEventListener('submit', (event) => {
     console.error('Sie müssen eingeloggt sein, um diese Aktion durchzuführen');
     return;
   }
-
-
-// Wähle das Formular und die Eingabefelder im Dokument aus
-const form = document.querySelector('form');
-const table = document.querySelector('table');
-const locationInput = document.querySelector('#location');
-const temperatureInput = document.querySelector('#temperature');
-const descriptionInput = document.querySelector('#description');
-
-const api_url = 'http://localhost:2940/api/v1/entities';
 
 // Füge einen Event-Listener hinzu, der auf das Absenden des Formulars reagiert
 form.addEventListener('submit', (event) => {
@@ -45,6 +45,8 @@ form.addEventListener('submit', (event) => {
     description: descriptionValue
   };
 
+  const api_url = 'http://localhost:2940/api/v1/entities';
+
   // Sende die Daten an den Server
   fetch(api_url, {
     method: 'POST',
@@ -62,7 +64,7 @@ form.addEventListener('submit', (event) => {
 fetch(api_url)
   .then(response => response.json())
   .then(data => {
-    // Verwenden Sie hier die Daten
+    // Erstellung der Tabelle mit den Daten
     data.forEach(item => {
       const row = document.createElement('tr');
       const locationCell = document.createElement('td');
@@ -119,8 +121,14 @@ table.addEventListener('click', (event) => {
 table.addEventListener('click', (event) => {
   if (event.target.id === 'change') {
     const row = event.target.parentNode.parentNode;
-    const locationValue = row.children[0].textContent;
-    const newTemperatureValue = prompt('Geben Sie den neuen Temperaturwert ein');
+    const locationCell = row.children[0];
+    const temperatureCell = row.children[1];
+    const descriptionCell = row.children[2];
+
+    const locationValue = locationCell.textContent;
+    const newLocationValue = prompt('Geben Sie den neuen Standort ein', locationValue);
+    const newTemperatureValue = prompt('Geben Sie den neuen Temperaturwert ein', temperatureCell.textContent);
+    const newDescriptionValue = prompt('Geben Sie die neue Beschreibung ein', descriptionCell.textContent);
 
     // Sende eine PUT-Anfrage an den Server
     fetch(`${api_url}/${locationValue}`, {
@@ -128,15 +136,21 @@ table.addEventListener('click', (event) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ temperature: newTemperatureValue })
+      body: JSON.stringify({
+        location: newLocationValue,
+        temperature: newTemperatureValue,
+        description: newDescriptionValue
+      })
     })
     .then(response => response.text())
     .then(message => {
       console.log(message);
-      // Aktualisiere den Temperaturwert in der Tabelle
-      row.children[1].textContent = newTemperatureValue;
+      // Aktualisiere die Werte in der Tabelle
+      locationCell.textContent = newLocationValue;
+      temperatureCell.textContent = newTemperatureValue;
+      descriptionCell.textContent = newDescriptionValue;
     })
     .catch(error => console.error('Fehler:', error));
   }
-});
+})
 });

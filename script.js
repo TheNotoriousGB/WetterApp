@@ -29,6 +29,13 @@ function displayWeatherData(data) {
       weatherContainer.appendChild(weatherItem);
     } else {
       console.error(`Stadt '${input}' nicht gefunden.`);
+      const errorElement = document.createElement("p");
+      errorElement.textContent = `Stadt '${input}' nicht gefunden.`;
+     errorElement.classList.add("error-message"); // Klasse zum Styling oder zur Anzeige hinzufügen
+
+     weatherContainer.appendChild(errorElement); // Füge die Fehlermeldung dem Container hinzu
+    console.error(`Stadt '${input}' nicht gefunden.`); // Optional: Fehlermeldung in der Konsole ausgeben
+
     }
   } else {
     console.error("Ungültige Eingabe.");

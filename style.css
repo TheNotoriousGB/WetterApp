@@ -103,6 +103,15 @@ body {
   font-weight: bold;
 }
 
+
+.error-message {
+  color: red; /* Textfarbe auf Rot setzen */
+  font-size: 16px; /* Schriftgröße festlegen */
+  font-weight: bold; /* Schriftgewicht auf fett setzen */
+  /* Weitere Stile nach Bedarf hinzufügen */
+}
+
+
 /* Stile für den Footer */
 footer {
   position: fixed;
