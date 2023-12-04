@@ -1,4 +1,3 @@
-// signUp.js
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('register-form');
     const messageDiv = document.getElementById('message');
@@ -18,7 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ username, password }),
             });
 
-            const data = await response.json();
+            let data;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                data = await response.json();
+            } else {
+                data = await response.text();
+            }
 
             if (response.ok) {
                 // Erfolgreiche Registrierung
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'login.html';
             } else {
                 // Registrierungsfehler
-                messageDiv.innerHTML = `<p>${data.error}</p>`;
+                messageDiv.innerHTML = `<p>${data.error || data}</p>`;
             }
         } catch (error) {
             console.error('Fehler bei der Registrierung:', error);
