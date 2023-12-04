@@ -1,0 +1,93 @@
+/* Globale Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #000000, #000000);
+    color: #ffffff;
+  }
+  
+  /* Stile für den Header */
+  h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #00ccff;
+    font-size: 36px;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  /* Stile für den Inhaltsbereich */
+.content {
+    max-width: 800px; /* Maximalbreite des Inhaltsbereichs */
+    margin: 0 auto; /* Automatisches Zentrieren des Inhalts */
+    padding: 20px;
+    text-align: left; /* Text links ausrichten */
+  }
+  
+  /* Stil für das Menü */
+.menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    display: inline;
+    margin-right: 15px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #00ccff ;
+    font-weight: bold;
+  }
+/* Stile für den Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile für das Copyright */
+footer .copyright {
+  font-size: 14px;
+}
+
+
+  
+    /* Media Query für Mobilgeräte */
+    @media screen and (max-width: 767px) {
+      h1 {
+        font-size: 24px; /* Noch kleinere Schriftgröße für kleinere Mobilgeräte */
+      }
+    
+      .logo {
+        position: absolute; /* Position auf relativer für Mobilgeräte ändern */
+        margin-top: 4px; /* Platzierung des Logos anpassen */
+        text-align: center; /* Zentrieren des Logos */
+      }
+    
+      .logo img {
+        width: 60px; /* Noch kleinere Breite für kleinere Mobilgeräte */
+      }
+    }

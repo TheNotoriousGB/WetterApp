@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+    m294-webapi:
+        image: manuelbachofner/m294webapi:latest
+        container_name: m294-webapi
+        restart: always
+        ports:
+            - 2940:4000  

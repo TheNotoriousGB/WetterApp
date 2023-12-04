@@ -1,0 +1,139 @@
+/* Globale Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #000000, #000000);
+    color: #ffffff;
+  }
+  
+  /* Stile für den Header */
+  h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #00ccff;
+    font-size: 36px; /* Kleinere Schriftgröße für Mobilgeräte */
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .logo img {
+    width: 80px; /* Kleinere Breite für Mobilgeräte */
+    height: auto;
+  }
+  
+  /* Stile für die Suchleiste */
+  .suche {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 12px; /* Kleinere Abmessungen für Mobilgeräte */
+    width: 80%; /* Vollständige Breite für Mobilgeräte */
+    max-width: 300px; /* Maximale Breite für Mobilgeräte */
+    border-radius: 5px;
+    border: 1px solid #00ccff;
+    font-size: 16px; /* Kleinere Schriftgröße für Mobilgeräte */
+  }
+  
+  /* Stile für die Wetteranzeige */
+  .wetter {
+    margin-top: 30px; /* Geringerer Abstand für Mobilgeräte */
+    text-align: center;
+  }
+  
+  #temperatur {
+    font-size: 60px; /* Kleinere Schriftgröße für Mobilgeräte */
+    color: #00ccff;
+    margin-bottom: 10px; /* Geringerer Abstand für Mobilgeräte */
+  }
+  
+  #city {
+    font-size: 24px; /* Kleinere Schriftgröße für Mobilgeräte */
+    color: #ffffff;
+    margin-top: -10px; /* Geringerer Abstand für Mobilgeräte */
+  }
+  
+  #beschreibung {
+    font-size: 24px; /* Kleinere Schriftgröße für Mobilgeräte */
+    color: #ffffff;
+    margin-top: 3px; /* Geringerer Abstand für Mobilgeräte */
+  }
+
+  .weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .weather-item p {
+    font-size: 34px;
+    margin: 8px 0;
+  }
+/* Stil für das Menü */
+.menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #00ccff ;
+  font-weight: bold;
+}
+
+/* Stile für den Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile für das Copyright */
+footer .copyright {
+  font-size: 14px;
+}
+
+
+  /* Media Query für Mobilgeräte */
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 24px; /* Noch kleinere Schriftgröße für kleinere Mobilgeräte */
+    }
+  
+    .logo {
+      position: absolute; /* Position auf relativer für Mobilgeräte ändern */
+      margin-top: 4px; /* Platzierung des Logos anpassen */
+      text-align: center; /* Zentrieren des Logos */
+    }
+  
+    .logo img {
+      width: 60px; /* Noch kleinere Breite für kleinere Mobilgeräte */
+    }
+  }
+  

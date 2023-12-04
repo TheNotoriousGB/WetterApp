@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wetter App</title>
+    <link rel="stylesheet" href="Einstellungen.css" />
+  </head>
+  <header>
+	<nav>
+	  <ul class="menu">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="Einstellungen.html">Settings</a></li>
+		<li><a href="about.html">About</a></li>
+	  </ul>
+	</nav>
+  </header>
+  <body>
+
+	<div class="logo">
+		<img src="68e257f8e1bd77fcf63e093912c43ccd-1814901629.jpg" alt="Logo"> 
+	  </div>
+
+    <h1>Einstellungen</h1>
+	<form>
+		<label for="location">Standort:</label>
+		<input type="text" id="location" name="location"><br><br>
+		<label for="temperature">Temperatur:</label>
+		<input type="text" id="temperature" name="temperature"><br><br>
+		<label for="description">Beschreibung:</label>
+		<input type="text" id="description" name="description"><br><br>
+		<button type="submit" id="save">Save</button>
+	</form>
+
+	<table id="data-table">
+		<thead>
+		  <tr>
+			<th>Standort</th>
+			<th>Temperatur</th>
+			<th>Beschreibung</th>
+			<th>Action</th>
+		  </tr>
+		</thead>
+		<tbody id="table-body">
+		  <!-- Existing table rows will be added here -->
+		</tbody>
+	  </table>
+
+	  <footer>
+		<div class="copyright">
+		  &copy; 2023 Gabriel Bischof. Alle Rechte vorbehalten.
+		</div>
+	  </footer>
+	  
+	  <script src="settings.js"></script>
+	</body>
+</html>
