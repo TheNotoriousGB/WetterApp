@@ -1,83 +1,72 @@
-/* login.css */
-
-/* Setzt die Hintergrundfarbe des gesamten Body auf schwarz */
 body {
-    background-color: black;
-  }
-  
-  /* Setzt die Hintergrundfarbe des Login-Containers auf weiß */
-  .login-container {
-    background-color: white;
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Setzt die Schriftart und -größe des Login-Titels */
-  h2 {
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    text-align: center;
-    color: black;
-  }
-  
-  /* Setzt die Schriftart und -größe der Labels */
-  label {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    display: block;
-    margin: 10px 0;
-    color: black;
-  }
-  
-  /* Setzt die Breite, Höhe, Rand und Farbe der Eingabefelder */
-  input {
-    width: 100%;
-    height: 30px;
-    border: 1px solid gray;
-    padding: 5px;
-    outline: none;
-  }
-  
-  /* Setzt die Breite, Höhe, Rand, Farbe und Hover-Effekt des Login-Buttons */
-  button {
-    width: 100%;
-    height: 40px;
-    border: none;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: darkgray;
-  }
-  
-  /* Setzt die Schriftart, -größe und -farbe des Registrierungslinks */
-  p {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: center;
-    color: black;
-  }
-  
-  a {
-    color: blue;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Setzt die Schriftart, -größe und -farbe der Nachricht */
-  #message {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: center;
-    color: red;
-  }
-  
+  background-color: black;
+}
+
+.login-container {
+  background-color: white;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: black;
+}
+
+label {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: block;
+  margin: 10px 0;
+  color: black;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  border: 1px solid gray;
+  padding: 5px;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgray;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: black;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#message {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: red;
+}

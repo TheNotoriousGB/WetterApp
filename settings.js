@@ -1,4 +1,3 @@
-
 // Wähle das Formular und die Eingabefelder im Dokument aus
 const form = document.querySelector('form');
 const table = document.querySelector('table');
@@ -8,8 +7,7 @@ const descriptionInput = document.querySelector('#description');
 
 const api_url = 'http://localhost:2940/api/v1/entities';
 
-
-// Überprüfen Sie, ob der Benutzer eingeloggt ist
+// Überprüfen, ob der Benutzer eingeloggt ist
 function isLoggedIn() {
   return localStorage.getItem('accessToken') !== null;
 }
@@ -19,16 +17,11 @@ form.addEventListener('submit', (event) => {
   // Verhindere das Neuladen der Seite
   event.preventDefault();
 
-  // Überprüfen Sie, ob der Benutzer eingeloggt ist
+  // Überprüfen, ob der Benutzer eingeloggt ist
   if (!isLoggedIn()) {
     console.error('Sie müssen eingeloggt sein, um diese Aktion durchzuführen');
     return;
   }
-
-// Füge einen Event-Listener hinzu, der auf das Absenden des Formulars reagiert
-form.addEventListener('submit', (event) => {
-  // Verhindere das Neuladen der Seite
-  event.preventDefault();
 
   // Erfasse die Werte der Eingabefelder
   const locationValue = locationInput.value;
@@ -45,8 +38,6 @@ form.addEventListener('submit', (event) => {
     description: descriptionValue
   };
 
-  const api_url = 'http://localhost:2940/api/v1/entities';
-
   // Sende die Daten an den Server
   fetch(api_url, {
     method: 'POST',
@@ -60,11 +51,10 @@ form.addEventListener('submit', (event) => {
   .catch(error => console.error('Fehler:', error));
 });
 
-// Laden Sie die Daten aus der JSON-Datei
+// Laden Sie die Daten aus der JSON-Datei und erstellen Sie eine Tabelle mit den Daten
 fetch(api_url)
   .then(response => response.json())
   .then(data => {
-    // Erstellung der Tabelle mit den Daten
     data.forEach(item => {
       const row = document.createElement('tr');
       const locationCell = document.createElement('td');
@@ -74,6 +64,7 @@ fetch(api_url)
       const deleteButton = document.createElement('button');
       const changeButton = document.createElement('button');
 
+      // Füllen der Tabellenzellen mit Daten
       locationCell.textContent = item.location;
       temperatureCell.textContent = item.temperature;
       descriptionCell.textContent = item.description;
@@ -96,8 +87,7 @@ fetch(api_url)
   })
   .catch(error => console.error('Fehler:', error));
 
-
- // Event-Listener für den "Löschen"-Button
+// Event-Listener für den "Löschen"-Button
 table.addEventListener('click', (event) => {
   if (event.target.id === 'delete') {
     const row = event.target.parentNode.parentNode;
@@ -152,5 +142,4 @@ table.addEventListener('click', (event) => {
     })
     .catch(error => console.error('Fehler:', error));
   }
-})
 });
